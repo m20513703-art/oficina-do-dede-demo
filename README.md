@@ -1,6 +1,6 @@
 # Oficina do Dedé — protótipo demonstrativo
 
-Prévia local de site público, painel da oficina, ordens de serviço, estoque e PDV de peças/serviços.
+Prévia pública temporária para revisão do site, painel da oficina, ordens de serviço, estoque e PDV de peças/serviços.
 
 ## Escopo da prévia
 
@@ -13,4 +13,4 @@ Prévia local de site público, painel da oficina, ordens de serviço, estoque e
 
 Esta prévia não tem backend, autenticação real, banco online, sincronização entre aparelhos nem processamento de pagamentos. Não usar dados de clientes ou informações reais. O painel demonstrativo não está protegido e não deve ser publicado como sistema de produção.
 
-Antes de uma versão comercial ou de produção, será necessário definir contatos autorizados e implementar backend, autenticação, banco de dados, controle de acesso e regras operacionais. Publicar a prévia depende da aprovação do usuário.
+Antes de uma versão comercial ou de produção, será necessário definir contatos autorizados e implementar backend, autenticação, banco de dados, controle de acesso e regras operacionais. Esta publicação é uma prévia temporária autorizada para revisão; não adicionar ao portfólio nem considerar como lançamento final sem aprovação.
