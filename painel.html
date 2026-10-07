@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191815">
+  <meta name="description" content="Painel demonstrativo fictício da Oficina do Dedé.">
+  <title>Painel da Oficina | Oficina do Dedé</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body class="panel-page">
+  <div class="panel-demo-notice">PAINEL DE DEMONSTRAÇÃO · SEM LOGIN REAL · USE APENAS DADOS FICTÍCIOS · SALVO NESTE NAVEGADOR</div>
+  <div class="panel-shell">
+    <aside class="panel-sidebar">
+      <a class="brand panel-brand" href="index.html"><span class="brand-mark" aria-hidden="true">⌁</span><span class="brand-name">OFICINA <b>DO DEDÉ</b><small>PAINEL DEMONSTRATIVO</small></span></a>
+      <nav class="panel-nav" aria-label="Navegação do painel">
+        <button class="active" data-panel-target="overview" type="button"><span class="nav-icon">▦</span> Visão geral</button>
+        <button data-panel-target="orders" type="button"><span class="nav-icon">⚙</span> Ordens de serviço</button>
+        <button data-panel-target="pos" type="button"><span class="nav-icon">▤</span> Caixa / PDV</button>
+        <button data-panel-target="stock" type="button"><span class="nav-icon">▥</span> Estoque</button>
+        <button data-panel-target="settings" type="button"><span class="nav-icon">◉</span> Dados da demo</button>
+      </nav>
+      <div class="panel-sidebar-bottom">Projeto fictício para apresentação.<a href="index.html">← Voltar ao site público</a></div>
+    </aside>
+    <main class="panel-main">
+      <header class="panel-topbar"><div><h1 id="panelPageTitle">Visão geral</h1><p>Quarta-feira · rotina demonstrativa da oficina</p></div><div class="panel-actions"><span class="demo-chip">● DEMO FICTÍCIA</span><a class="button button-dark button-small" href="index.html">Ver site público ↗</a></div></header>
+
+      <section class="panel-section is-active" data-panel-section="overview">
+        <div class="sample-banner">Os números e registros abaixo são fictícios. As alterações ficam somente neste navegador e não sincronizam com outros aparelhos.</div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-top"><span>Ordens em aberto</span><span class="metric-icon">⚙</span></div><strong id="metricOpenOrders">0</strong><small>Atendimentos não finalizados</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Aguardando aprovação</span><span class="metric-icon">◷</span></div><strong id="metricApprovals">0</strong><small>Orçamentos demonstrativos</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Vendas de demonstração</span><span class="metric-icon">▤</span></div><strong id="metricSales">0</strong><small>Transações neste navegador</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Caixa demonstrativo</span><span class="metric-icon">R$</span></div><strong id="metricRevenue">R$ 0</strong><small>Não representa faturamento real</small></article>
+        </div>
+        <div class="panel-grid">
+          <article class="panel-card"><div class="panel-card-heading"><h3>Ordens recentes</h3><button data-panel-target="orders" type="button">Ver todas ↗</button></div><div id="recentOrders" class="status-list"></div></article>
+          <article class="panel-card"><div class="panel-card-heading"><h3>Atividade demonstrativa</h3><span class="demo-chip">EXEMPLOS</span></div><div class="activity-list"><div class="activity-item"><span class="activity-dot"></span><div><b>Orçamento de revisão</b><br><span>OS-2026-0012 · aguardando aprovação</span></div></div><div class="activity-item"><span class="activity-dot"></span><div><b>Veículo pronto para retirada</b><br><span>OS-2026-0013 · exemplo fictício</span></div></div><div class="activity-item"><span class="activity-dot"></span><div><b>Venda de óleo e filtro</b><br><span>PDV · registro demonstrativo</span></div></div></div></article>
+        </div>
+        <p class="panel-footer-note">Atalho de demonstração: crie uma solicitação no site público e ela aparecerá neste painel se ambos estiverem abertos no mesmo navegador.</p>
+      </section>
+
+      <section class="panel-section" data-panel-section="orders">
+        <div class="panel-section-title"><div><h2>Ordens de serviço</h2><p>Controle de atendimentos e status dos veículos.</p></div><button class="button button-orange button-small" data-toggle-order-form type="button">+ Nova ordem</button></div>
+        <form id="quickOrderForm" class="panel-card quick-order-form" hidden><div class="panel-card-heading"><h3>Criar ordem fictícia</h3><button class="subtle-button" data-toggle-order-form type="button">Fechar</button></div><div class="form-grid"><label>Cliente demonstrativo<input name="customer" required placeholder="Nome fictício"></label><label>Veículo<input name="vehicle" required placeholder="Modelo e ano"></label><label>Serviço<input name="service" required placeholder="Ex.: revisão"></label><label>Placa fictícia<input name="plate" maxlength="8" placeholder="ABC1D23"></label></div><button class="button button-orange button-small" type="submit">Adicionar ordem</button></form>
+        <div class="filter-bar"><input id="orderSearch" type="search" placeholder="Buscar por OS, cliente ou veículo"><select id="orderStatusFilter"><option value="">Todos os status</option><option>Recebido</option><option>Aguardando aprovação</option><option>Em serviço</option><option>Pronto para retirada</option></select></div>
+        <div class="panel-table-wrap"><table class="panel-table"><thead><tr><th>ORDEM / CLIENTE</th><th>VEÍCULO</th><th>SERVIÇO</th><th>STATUS</th><th>AÇÃO</th></tr></thead><tbody id="ordersTableBody"></tbody></table></div>
+        <p class="panel-footer-note">Não use nomes, placas ou dados de clientes reais nesta demonstração.</p>
+      </section>
+
+      <section class="panel-section" data-panel-section="pos">
+        <div class="panel-section-title"><div><h2>Caixa / PDV</h2><p>Venda demonstrativa de serviços e peças da oficina.</p></div><span class="demo-chip">SEM PAGAMENTO REAL</span></div>
+        <div class="sample-banner">Este PDV não processa pagamentos. “Finalizar venda” registra uma transação fictícia apenas no navegador.</div>
+        <div class="pos-layout"><article class="panel-card"><div class="panel-card-heading"><h3>Catálogo demonstrativo</h3><span class="demo-chip">PREÇOS FICTÍCIOS</span></div><div id="productGrid" class="product-grid"></div></article><article class="panel-card"><div class="panel-card-heading"><h3>Venda atual</h3><button id="clearCart" class="subtle-button" type="button">Limpar</button></div><div id="cartItems"></div><div class="cart-total"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div><select id="paymentMethod" class="payment-select"><option>Dinheiro (demo)</option><option>Cartão (demo)</option><option>Pix (demo)</option></select><button id="checkoutButton" class="button button-orange pos-checkout" type="button">Finalizar venda fictícia</button><div id="checkoutFeedback" class="form-feedback" aria-live="polite"></div></article></div>
+        <article class="panel-card sales-history-card" style="margin-top:14px"><div class="panel-card-heading"><h3>Últimas vendas fictícias</h3></div><div id="salesHistory"></div></article>
+      </section>
+
+      <section class="panel-section" data-panel-section="stock">
+        <div class="panel-section-title"><div><h2>Estoque demonstrativo</h2><p>Produtos de exemplo; ajuste as quantidades para testar a interface.</p></div><span class="demo-chip">DADOS LOCAIS</span></div>
+        <div class="panel-table-wrap"><table class="panel-table"><thead><tr><th>ITEM</th><th>CATEGORIA</th><th>QUANTIDADE</th><th>MÍNIMO</th><th>SITUAÇÃO</th><th>AJUSTAR</th></tr></thead><tbody id="stockTableBody"></tbody></table></div>
+        <p class="panel-footer-note">Os itens vendidos no PDV reduzem a quantidade de estoque nesta demonstração.</p>
+      </section>
+
+      <section class="panel-section" data-panel-section="settings">
+        <div class="panel-section-title"><div><h2>Dados da demonstração</h2><p>Identidade e limites deste protótipo.</p></div><span class="demo-chip">FICTÍCIO</span></div>
+        <div class="settings-grid"><article class="settings-item"><h3>Oficina do Dedé</h3><p>Nome e identidade usados somente para a demonstração comercial.</p></article><article class="settings-item"><h3>Endereço demonstrativo</h3><p>Rua Guanabara, 26 · Divinolândia–SP. Não é endereço confirmado de atendimento.</p></article><article class="settings-item"><h3>Contatos fictícios e inativos</h3><p>(19) 98112-3401 · (19) 3663-0000. Não ligue nem envie mensagens.</p></article><article class="settings-item"><h3>Como os dados são salvos</h3><p>Localmente neste navegador por localStorage; sem servidor ou sincronização entre aparelhos.</p></article><article class="settings-item"><h3>Segurança</h3><p>Esta tela é pública e não tem autenticação real. Não cadastre dados pessoais, informações de clientes ou pagamentos.</p></article><article class="settings-item"><h3>Antes de vender</h3><p>Precisaremos configurar backend, autenticação, banco, regras de acesso e contatos autorizados para operação real.</p></article></div>
+        <button id="resetDemo" class="button button-dark button-small" type="button" style="margin-top:16px">Restaurar dados iniciais</button>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
